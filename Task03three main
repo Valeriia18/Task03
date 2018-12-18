@@ -1,0 +1,23 @@
+ public static void main(String[] args) {
+        ConsolePrinter.print("Enter any English letter: (Mathod with Switch)");
+        char a = UserInput.input();
+        if (Logic.isLetterA(a) == false) {
+            ConsolePrinter.print("Not a letter");
+
+        } else if (Logic.isVowelOrConsonantSwitch(a)) {
+            ConsolePrinter.print("Vowel");
+        } else {
+            ConsolePrinter.print("Consonant");
+        }
+
+        ConsolePrinter.print("Enter any English letter:  (Method with if)");
+        char b = UserInput.input();
+        if (Logic.isLetterB(b) == false) {
+            ConsolePrinter.print("Not a letter");
+        } else if (Logic.isVowelOrConsonant(b)) {
+            ConsolePrinter.print("Vowel");
+        } else {
+            ConsolePrinter.print("Consonant");
+        }
+    }
+}
