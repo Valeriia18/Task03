@@ -1,0 +1,7 @@
+public class UserInput {
+
+    public static char input() {
+        Scanner scan = new Scanner(System.in);
+        return scan.next().charAt(0);
+    }
+}
