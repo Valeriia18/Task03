@@ -1,0 +1,131 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package task03five;
+
+/**
+ *
+ * @author Алексей-Валерия
+ */
+public class Logic {
+
+    public static final int monthType1 = 28;
+    public static final int monthType2 = 30;
+    public static final int monthType3 = 31;
+    public static final int monthsPerYear = 12;
+
+    public static String calculateTomorrow(int day, int month, int year) {
+        int TomorrowDay = 0;
+        int TomorowMonth = 0;
+        int TomorrowYear = 0;
+        String result = "";
+        
+        Logic.calculateDaysPerMonth(month, year);
+        Logic.isLeapYear(year);
+        
+//flag f for Leap or Non-Leap years
+        int f;
+
+        if (Logic.isLeapYear(year)) {
+            f = 1;
+        } else {
+            f = -1;
+        }
+
+       
+        if ((day > 31 || day < 1 || month < 1 || month > 12 || year < 0
+                || (day % 1 != 0) || (month % 1 != 0) || (year % 1 != 0)) 
+                || (month == 4 || month == 6 || month == 9 || month == 11) & (day == 31)) {
+
+            return result = "Incorrect data";
+
+        } else if ((month == 12) & (day == 30)) {
+            TomorrowDay = day + 1;
+            TomorowMonth = month;
+            TomorrowYear = year;
+        } else if ((month == 12) & (day == 31)) {
+            TomorrowDay = 1;
+            TomorowMonth = 1;
+            TomorrowYear = year + 1;
+        } else if ((month == 2) & (f == 1) & (day == 29)) {
+            TomorrowDay = 1;
+            TomorowMonth = 3;
+            TomorrowYear = year;
+            } else if ((month == 2) & (f == 1) & (day == 28)) {
+            TomorrowDay = 29;
+            TomorowMonth = 2;
+            TomorrowYear = year;
+        } else if ((month == 2) & (f == -1) & (day == 28)){
+            TomorrowDay = 1;
+            TomorowMonth = 3;
+            TomorrowYear = year;
+
+        } else if ((month == 4 || month == 6 || month == 9 || month == 11) & (day != 30)) {
+            TomorrowDay = day + 1;
+            TomorowMonth = month;
+            TomorrowYear = year;
+        } else if ((month == 4 || month == 6 || month == 9 || month == 11) & (day == 30)) {
+            TomorrowDay = 1;
+            TomorowMonth = month + 1;
+            TomorrowYear = year;
+        } else if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+                || month == 10) & (day != 31)) {
+            TomorrowDay = day + 1;
+            TomorowMonth = month;
+            TomorrowYear = year;
+        } else if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8
+                || month == 10) & (day == 31)) {
+            TomorrowDay = 1;
+            TomorowMonth = month + 1;
+            TomorrowYear = year;
+        }       
+        return TomorrowDay + "." + TomorowMonth + "." + TomorrowYear;
+    }
+
+    public static int calculateDaysPerMonth(int month, int year) {
+        int result = 0;
+
+        switch (month) {
+            case 2:
+                if (Logic.isLeapYear(year)) {
+                    result = monthType1 + 1;
+                } else {
+                    result = monthType1;
+                }
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11: {
+                result = monthType2;
+            }
+
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12: {
+                result = monthType3;
+            }
+
+        }
+        return result;
+    }
+
+    public static boolean isLeapYear(int year) {
+        boolean LeapYear = false;
+        if (year % 4 == 0) {
+            LeapYear = true;
+        } else if (year % 100 == 0) {
+            LeapYear = false;
+        } else if (year % 400 == 0) {
+            LeapYear = true;
+        }
+        return LeapYear;
+    }
+}
