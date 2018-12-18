@@ -1,0 +1,50 @@
+public class Logic {
+
+    public final static int numberOfMoods = 10;
+
+    public static String switchEmoji(int number) {
+        String result = "";
+
+        switch (number) {
+            case 0:
+                result = "ʕ ᵔᴥᵔ ʔ";
+                break;
+            case 1:
+                result = "‿︵‿ヽ(°□° )ノ︵‿︵";
+                break;
+            case 2:
+                result = "(⌒‿⌒)";
+                break;
+            case 3:
+                result = "(◕‿◕)";
+                break;
+            case 4:
+                result = "\\(★ω★)/";
+                break;
+            case 5:
+                result = "(ღ˘⌣˘ღ)";
+                break;
+            case 6:
+                result = "(︶︹︺) ";
+                break;
+            case 7:
+                result = "(↼_↼)";
+                break;
+            case 8:
+                result = "( ° ∀ ° )ﾉﾞ";
+                break;
+            case 9:
+                result = "(－‸ლ)";
+                break;
+            case 10:
+                result = "(❤ω❤)";
+                break;
+        }
+
+        return result;
+    }
+
+    public static int generateNumber() {
+        return (int) (Math.random() * numberOfMoods);
+    }
+}
