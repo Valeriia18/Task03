@@ -1,0 +1,7 @@
+public class UserInput {
+    public static final Scanner a = new Scanner (System.in);
+    public static int print (String msg){
+        System.out.println(msg);
+        return a.nextInt();
+    }
+}
